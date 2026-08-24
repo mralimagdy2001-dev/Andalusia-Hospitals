@@ -1,5 +1,5 @@
 
-📊 ## Andalusia Hospitals
+ ## Andalusia Hospitals
 
 ## Healthcare Revenue & Operational Performance Analysis
 
