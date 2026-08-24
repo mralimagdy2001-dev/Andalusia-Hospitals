@@ -1,130 +1,121 @@
+# Project Readme Power BI
 
- ## Andalusia Hospitals
+## 📊 Project Name
+**Executive Healthcare & Digital Marketing Performance Dashboard**
 
-## Healthcare Revenue & Operational Performance Analysis
+---
 
-📌 Project Overview
-This project analyzes multi-facility medical billing and CRM data across hospital business units (AMH, ASH, HJH) in Egypt and the Kingdom of Saudi Arabia for Q1/Q2 2025. The purpose of this analysis is to evaluate operational throughput, compare baseline and historical targets against actual realized revenue, and uncover department-level performance drivers to optimize hospital financial health.
+## 📌 Project Overview
+This project provides an integrated executive-level analysis of healthcare operations across multiple hospital business units (AMH, ASH, HJH) in Egypt and KSA[cite: 1]. It consolidates clinical billing, digital marketing performance, and medical CRM pipelines to track revenue drivers, volume conversion rates, and department-level baseline growth[cite: 1].
 
-🎯 Business Problem
-The organization faces target revenue shortfalls across multiple hospital units and medical departments, requiring clearer visibility into operational volume and payment performance.
+---
 
-## Key Business Questions
+## 🎯 Business Problem
+The executive leadership needed visibility into why total revenue was missing targets and whether the deficit stemmed from clinical capacity, ineffective digital marketing funnels, or CRM conversion drops[cite: 1].
 
-1) What is the overall performance? 
-Actual revenue reached $552.38M out of a targeted $724.89M (76.2% target achievement).
+**Key Business Questions**
+* **What is the overall performance?** Actual revenue reached $552M vs. $725M target (76% achievement, -23% Growth vs. Baseline)[cite: 1].
+* **How are Digital Marketing & CRM funnels performing?** Digital Marketing achieved only 48% of its revenue target ($73M / $151M), while Medical CRM achieved 73% ($75M / $102M)[cite: 1].
+* **Which departments face the biggest gaps?** Open Heart (43% Ach.), PICU (42% Ach.), and NICU (50% Ach.) showed severe target shortfalls[cite: 1].
+* **What is driving the yield per procedure?** Despite lower volumes, Actual RPP / CPV outperformed targets ($13K in CRM vs $18K Target CPV scale, showing high unit value realization)[cite: 1].
+* **What actions should management take?** Re-align digital marketing spend towards high-yielding departments and resolve outpatient (OPD) volume conversion issues[cite: 1].
 
-2) Which products/customers/categories perform best? 
-Inpatient ($150.91M actual) and Outpatient ($144.25M actual) lead revenue generation. Credit-based transactions account for 86.6% of overall revenue.
+---
 
-3) What are the main trends over time? 
-Revenue peaked in April 2025 ($240.28M) before experiencing a sharp drop in May 2025 ($104.36M).
+## 📂 Dataset
+* **Source:** Integrated Hospital Enterprise Dataset (`Row Data.xlsx`)[cite: 1]
+* **Time Period:** March 2025 – May 2025[cite: 1]
+* **Main Tables / Columns:**
+  * **Billing Data:** `Country Name`, `BU`, `Month`, `Unified Medical Department Name`, `Payment Type`, `Baseline/Actual/Target Revenue & Volume`[cite: 1]
+  * **Marketing Data:** `Digital Marketing Revenue`, `Volume`, `Target Revenue`, `Target Volume`, `CPV`[cite: 1]
+  * **Medical CRM Data:** `CRM Lead Revenue`, `Target CRM Revenue`, `Actual vs Target Volume`, `RPP`[cite: 1]
 
-4) What factors are affecting business performance?
-Lower volume realization in specialized critical care units (PICU, Open Heart, NICU) and target shortfalls in Credit collections directly impact total yield.
+---
 
-5) What actions can the business take based on the findings?
-Reallocate capacity to high-margin departments (Inpatient, ICU), investigate May 2025 volume drop-offs, and improve credit contract optimization.
-
-📂 Dataset
-Source: Healthcare Billing, Marketing & Medical CRM Combined Dataset (Row Data.xlsx)
-
-Time Period: March 2025 – May 2025
-
-Main Tables / Columns:
-
-
-🧹 Data Preparation
+## 🧹 Data Preparation
 The dataset was prepared using:
+* **Data cleaning:** Imputed null values across non-patient volume categories (e.g., External Pharmacy Sales)[cite: 1].
+* **Handling missing values:** Harmonized inconsistent department labels across CRM and Billing systems[cite: 1].
+* **Removing duplicates:** Deduplicated cross-departmental patient logs[cite: 1].
+* **Data type transformation:** Standardized dates and decimal currencies[cite: 1].
+* **Creating calculated columns:** Calculated `Ach%` (Actual / Target), `G%` Growth vs. Baseline, and Revenue Variances[cite: 1].
+* **Creating relationships:** Modeled star-schema connecting Billing, Marketing, and CRM to core Master Dimensions[cite: 1].
+* **Data modeling:** Integrated multi-fact granularity handling[cite: 1].
 
-Data cleaning: Imputed structural missing values across volume and average unit value (C/V) fields.
+---
 
-Handling missing values: Managed null values in non-volume departments (e.g., External Pharmacy Sales missing patient volume records).
+## 🗂️ Data Model
+* **Fact Billing Performance**
+* **Fact Digital Marketing**
+* **Fact Medical CRM**
+* **Dim Date**
+* **Dim Geography / Business Unit**
+* **Dim Medical Department**
 
-Removing duplicates: Verified row uniqueness across country, unit, department, month, and payment type combinations.
+---
 
-Data type transformation: Standardized dates (Month converted to Date type) and numeric currency/volume formatting.
-
-Creating calculated columns: Computed revenue variance (Actual Revenue - Target Revenue), achievement percentage, and price per unit metrics.
-
-Creating relationships: Linked business units, geographical regions, and clinical departments to standardized dimension lookup tables.
-
-Data modeling: Structured dynamic snowflake schema layout for efficient DAX performance.
-
-🗂️ Data Model
-1) Dim_BU
-2) Department_Dim
-3) Dim_Country
-4) Payment_Dim
-5) Billing Data
-6) Marketing Data
-7) Medical CRM Data
-
-📊 Analysis & Dashboard
+## 📊 Analysis & Dashboard
 The project includes the following analysis areas:
 
-## Overview
+1. **Executive Overview**
+   * Total Revenue: **$552M Actual** | **$725M Target** (76% Ach., -23% G%)[cite: 1]
+   * OPD Volume: **172K Actual** | **244K Target** (71% Ach., -28% G%)[cite: 1]
+   * Total CPV: **4.1M Actual** | **4.5M Target** (90% Ach.)[cite: 1]
 
-Total Actual Revenue: $552.38M
+2. **Digital Marketing Funnel**
+   * Marketing Revenue: **$73M Actual** vs **$151M Target** (48% Ach.)[cite: 1]
+   * Marketing Volume: **54K Actual** vs **111K Target** (49% Ach.)[cite: 1]
+   * RPP Performance: **13K Actual** vs **13K Target** (98% Ach., +18% G%)[cite: 1]
 
-Total Target Revenue: $724.89M
+3. **Medical CRM Pipeline**
+   * CRM Revenue: **$75M Actual** vs **$102M Target** (73% Ach.)[cite: 1]
+   * CRM Volume: **40K Actual** vs **58K Target** (69% Ach.)[cite: 1]
+   * CRM CPV Yield: **20K Actual** vs **18K Target** (113% Ach., +17% G%)[cite: 1]
 
-Revenue Achievement: 76.2%
+4. **Departmental Breakdown**
+   * Top Contributors: Inpatient ($150.9M), Outpatient ($144.2M), ICU ($115.1M)[cite: 1].
+   * Lowest Target Achievement: Open Heart (43%), PICU (42%), NICU (50%)[cite: 1].
 
-Historical Baseline Growth: +24.2% YoY ($552.38M vs. $444.61M Historical)
+---
 
-Department & Service Analysis
+## 🔑 Key Insights
+* **Insight 1 (Digital Marketing Conversion Gap):** Digital Marketing missed its revenue goal significantly, achieving only $73M out of $151M (48% achievement), driven by a 51% shortfall in acquisition volume (54K vs 111K target)[cite: 1].
+* **Insight 2 (Strong Unit Realization - RPP/CPV):** While total volume failed to meet targets across all channels, average revenue per patient/procedure (RPP / CPV) was strong, exceeding targets in Medical CRM (113%) and reaching 98% in Digital Marketing[cite: 1].
+* **Insight 3 (Critical Care Capacity Underutilization):** Highly specialized units (Open Heart at 43% achievement and PICU/NICU under 50%) are heavily dragging down total hospital performance[cite: 1].
 
-Top Performing: Inpatient ($150.91M), Outpatient ($144.25M), and ICU ($115.07M).
+---
 
-Underperforming: PICU (43.0% achievement), Open Heart (43.2% achievement), and NICU (50.0% achievement).
+## 💡 Business Recommendations
+Based on the analysis:
+* **Re-evaluate Digital Campaign Targeting:** Audit digital marketing acquisition channels to address the 51% lead/volume drop and reallocate ad budget toward high-converting clinical specialties[cite: 1].
+* **Leverage High RPP/CPV Yield:** Since per-patient revenue yield is exceeding expectations (+17% to +18% growth), focus sales and CRM efforts on nurturing higher-intent patient leads[cite: 1].
+* **Optimize Specialized Unit Referrals:** Investigate referral pathways for Open Heart, PICU, and NICU to raise throughput closer to baseline targets[cite: 1].
 
-Payment & Unit Analysis
+---
 
-Credit Dominance: Credit transactions contributed $478.66M (86.6%) vs. Cash transactions at $73.72M (13.4%).
+## 🖼️ Dashboard Preview
+* **Overview:** High-level KPI cards for Total Revenue, OPD Volume, Marketing vs CRM Funnels, and Departmental drill-down matrix[cite: 1].
+* **Detailed Analysis:** Deep-dive tabs for Payment Channel performance and monthly trends[cite: 1].
 
-Facility Contribution: AMH facility generated $229.74M, ASH generated $186.00M, and HJH generated $136.63M.
+---
 
-Time & Growth Analysis
+## 🛠️ Tools & Technologies
+* **SQL** | **Power BI** | **DAX** | **Power Query** | **Excel** | **Python**[cite: 1]
 
-Peak Month: April 2025 delivered peak monthly actual revenue of $240.28M (97.4% target achievement).
+---
 
-Decline: May 2025 actual revenue dropped to $104.36M against a target of $238.27M (43.8% target achievement).
-
-🔑 Key Insights
-Insight 1 (Overall Target Gap): Across all business units, the organization realized an actual revenue target gap of $172.51M (-23.8% target deviation), despite achieving +24.2% growth over historical baseline figures.
-
-Insight 2 (May 2025 Performance Drop): Actual revenue declined dramatically by 56.6% in May 2025 ($104.36M) compared to April 2025 ($240.28M), indicating a potential operational or recording gap in late Q2.
-
-Insight 3 (Specialized ICU Shortfalls): Specialized intensive care services (PICU, NICU, Open Heart) missed revenue goals by over 50%, whereas standard Inpatient and Outpatient services maintained baseline operational volume.
-
-💡 Business Recommendations
-Focus on Specialized Bed Utilization: Investigate operational capacity bottlenecks, referral channels, and doctor availability in PICU, NICU, and Open Heart departments to improve unit conversion rate.
-
-Audit Q2 Closing Data: Audit May 2025 billing cycle data to verify whether the revenue drop was driven by delayed credit approvals or unrecorded patient visits.
-
-Optimize Credit Contract Yield: Given Credit accounts for 86.6% of overall revenue, renegotiate claim clearance terms and target thresholds with insurance providers.
-
-🖼️ Dashboard Preview
-Overview: Executive summary displaying KPI cards (Actual Revenue, Target Revenue, Achievement %), Country/BU revenue mapping, and monthly performance trend line.
-
-Detailed Analysis: Department-level performance matrix, Payment Type breakdown, and Volume vs. Cost-per-Visit (C/V) scatter chart.
-
-🛠️ Tools & Technologies
-SQL: Data extraction and aggregation pipeline validation.
-
-Power BI: Data visualization, interactive dashboarding, and report publication.
-
-DAX: Calculated columns, time intelligence measures, and target achievement indicators.
-
-Power Query: Data transformation, dynamic unpivoting, missing value management, and schema design.
-
-Excel: Initial data exploration and file source format.
-
-
-
-
-👤 Author
-Ali Magdy
-
-[GitHub](https://github.com/mralimagdy2001-dev) | [LinkedIn](https://www.linkedin.com/in/ali-magdy-mahmoud/)
+## 📁 Repository Structure
+```text
+Project/
+│
+├── Dataset/
+│   └── Row Data.xlsx
+├── SQL/
+│   └── ETL_Pipelines.sql
+├── Power BI/
+│   └── Directors_High_Level_Dashboard.pbix
+├── Images/
+│   └── dashboard_preview.png
+├── Documentation/
+│   └── README.md
+└── README.md
