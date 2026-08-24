@@ -1,6 +1,7 @@
 
-📊 # Andalusia Hospitals
-Healthcare Revenue & Operational Performance Analysis
+📊 ## Andalusia Hospitals
+
+## Healthcare Revenue & Operational Performance Analysis
 
 📌 Project Overview
 This project analyzes multi-facility medical billing and CRM data across hospital business units (AMH, ASH, HJH) in Egypt and the Kingdom of Saudi Arabia for Q1/Q2 2025. The purpose of this analysis is to evaluate operational throughput, compare baseline and historical targets against actual realized revenue, and uncover department-level performance drivers to optimize hospital financial health.
