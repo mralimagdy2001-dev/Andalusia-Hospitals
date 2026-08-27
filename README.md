@@ -6,8 +6,8 @@
 ---
 
 ##  Dashboard Overview
-![Dashboard] (Images/Andalusia_Hospitals.png)
-![Schema] (Images/Andalusia_Hospitals_Schema.png)
+![Dashboard](Images/Andalusia_Hospitals.png)
+![Schema](Images/Andalusia_Hospitals_Schema.png)
 
 ---
 
